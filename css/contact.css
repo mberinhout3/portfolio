@@ -1,0 +1,104 @@
+/*contact.css 
+This would be the css file for contact so the separate contact page maintains that centered layout
+While the contact section on the main page changes layout 
+
+original centered version:*/
+
+
+
+#contact {
+	padding-top: 100px;
+}
+
+
+h2{
+	font-family: "cofo-raffine", sans-serif;
+	color:white;
+	font-size: 100px;
+	font-weight: bold;
+	letter-spacing: 0.03em;
+	text-align: center;
+	margin-bottom: 0.5em;
+}
+
+h1{
+	font-family: "cofo-raffine", sans-serif;
+	color:white;
+	font-size:60px;
+	font-weight: 300;
+	margin-bottom: 1.2em;
+	text-align: center;	
+}
+
+p{
+	font-family: "cofo-raffine", sans-serif;
+	color:white;
+	font-size:30px;
+	font-weight: 300;
+	margin-bottom: 1.2em;
+	text-align: center;	
+}
+/* Two-column layout */
+form {
+  width: 90%;
+  max-width: 1100px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 40px;
+  padding-bottom:100px;
+}
+
+/* Columns */
+.contact-left,
+.contact-right {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* Inputs and text areas */
+#contact input,
+#contact textarea {
+  width: 100%;
+  padding: 10px;
+  font-family: inherit;
+  font-size: 18px;
+  border: none;
+  border-radius: 4px;
+  background: rgba(255, 255, 255, 0.85);
+  color: #000;
+}
+
+#contact textarea {
+  min-height: 200px;
+  margin-top: 0;
+}
+
+/* ✅ SEND button alignment */
+#contact input[type="submit"] {
+  align-self: flex-end;   /* right side of column */
+  width: auto;
+  padding: 10px 25px;
+  background: #fff;
+  color: #000;
+  border: none;
+  font-family: inherit;
+  font-size: 18px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-top: 10px;       /* spacing below  textarea */
+}
+
+#contact input[type="submit"]:hover {
+  background: #6ed6a6;
+  color: #fff;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  form { flex-direction: column; }
+  #contact input[type="submit"] { align-self: flex-start; }
+}
