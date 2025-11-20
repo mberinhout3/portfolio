@@ -1,0 +1,280 @@
+/* Make the background image cover the entire site */
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  background-image: url("../images/backgroundfilter.png");
+  background-repeat: no-repeat;
+  background-size: cover;      /* scales to fill the screen */
+  background-position: center;
+  background-attachment: fixed; 
+  align-items: center;
+  justify-content:center;
+}
+
+
+
+nav ul{
+	position:sticky;
+	top:0;
+	display:flex;
+	gap:30px;
+	list-style: none;
+	margin: 0;
+	padding-right: 10px;
+}
+
+
+#navbar .logo img {
+  height: 100px;   
+  width: auto;
+  display: block;
+  object-fit: contain;
+}
+
+
+#navbar {
+  position: fixed;         
+  top: 0;
+  left: 0; 
+  right: 0;        
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 30px;
+  height: 150px;            
+  background:black ;     
+  border-bottom: 1px solid white;
+  z-index: 1000;
+  overflow: auto;
+  white-space: nowrap;
+}
+
+#navbar a {
+  font-family: "cofo-raffine", sans-serif;
+  font-size: 23px;
+  font-weight: 400;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;       
+  color: #ffffff;                  
+  text-decoration: none;
+}
+
+#navbar a:hover {
+  color: #6ed6a6;                  
+}
+
+#navbar a.active {
+  color: #6ed6a6;
+  border-bottom: none;
+  padding-bottom: 4px;
+}
+
+/* Carousel shell */
+.carousel{
+  margin:100px auto;
+  width:90%;
+/*  border:5px solid black; */
+  overflow:hidden;
+  position:relative;
+  padding-top:100px;
+}
+
+/* Moving track (two copies in one row) */
+.track{
+  display:flex !important;
+  flex-wrap:nowrap !important;
+  align-items:center;          /* keep varying image heights vertically centered */
+  gap:1em;
+  width:max-content;
+  animation:carousel-scroll 30s linear infinite;
+}
+
+/* Each slide is just a wrapper */
+.slide{ flex:0 0 auto; margin:0; }
+
+/* KEY: keep aspect ratio – set a common height, width auto */
+.slide img{
+  display:block;
+  height:400px;              
+  width:auto;  /* maintains aspect ratio */
+}
+
+/* Seamless loop: shift exactly one full copy width */
+@keyframes carousel-scroll{
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
+.carousel:hover .track{ animation-play-state:paused; }
+@media (prefers-reduced-motion: reduce){ .track{ animation:none; } }
+
+.button{
+	display:flex;
+	justify-content:center;
+	align-items: center;
+}
+
+.btn{
+	border: 1px solid black;
+	border-radius: 0px;
+	background-color: black;
+	padding: 10px 14px;
+	font-family: "cofo-raffine", sans-serif;
+	font-size: 40px;
+	font-weight: 400;
+	cursor:pointer;
+	letter-spacing: 0.1em;
+	text-transform: uppercase; 
+	transform: scale(.8, 1);
+	text-align: center; /* I don't think this does anything, so need to come back to this */
+
+}
+
+.more{
+	border-color:#6ed6a6;
+	color:white; 
+	
+}
+
+.more:hover {
+	background-color:#6ed6a6;
+	color: black;
+}
+
+
+
+
+#contact {
+	padding-top: 100px;
+}
+
+
+
+
+h2{
+	position:relative;
+	left: 33px;
+	width:400px;
+	height:100px;
+	font-family: "cofo-raffine", sans-serif;
+	color:white;
+	font-size: 100px;
+	font-weight: bold;
+	letter-spacing: 0.03em;
+	text-align: left;
+	margin-bottom: 0.5em;
+}
+
+/*this doesn't do anything and I'm not sure why yet, even when I change the <p> to <h1>*/
+h1{
+	font-family: "cofo-raffine", sans-serif;
+	color:white;
+	font-size:60px;
+	font-weight: 300;
+	margin-bottom: 1.2em;
+	text-align: center;	
+}
+
+
+p{
+	position: relative;
+	left: 500px;
+	width:400px;
+	height:100px;
+	font-family: "cofo-raffine", sans-serif;
+	color:white;
+	font-size:30px;
+	font-weight: 300;
+	margin-bottom: 1.2em;
+	text-align: left;	
+	
+}
+
+
+/* Two-column layout */
+form {
+  width: 90%;
+  max-width: 1100px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 40px;
+  padding-bottom:100px;
+}
+
+/* Columns */
+.contact-left,
+.contact-right {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* Inputs and text areas */
+#contact input,
+#contact textarea {
+  width: 100%;
+  padding: 10px;
+  font-family: inherit;
+  font-size: 18px;
+  border: none;
+  border-radius: 4px;
+  background: rgba(255, 255, 255, 0.85);
+  color: #000;
+}
+
+#contact textarea {
+  min-height: 200px;
+  margin-top: 0;
+}
+
+/* ✅ SEND button alignment */
+#contact input[type="submit"] {
+  align-self: flex-end;/* right side of column */
+  width: auto;
+  padding: 10px 25px;
+  background: #fff;
+  color: #000;
+  border: none;
+  font-family: inherit;
+  font-size: 18px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-top: 10px;  /* spacing below textarea */
+}
+
+#contact input[type="submit"]:hover {
+  background: #6ed6a6;
+  color: #fff;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  form { flex-direction: column; }
+  #contact input[type="submit"] { align-self: flex-start; }
+}
+
+
+/*
+
+input{
+	font-family: "cofo-raffine", sans-serif;	
+}
+
+textarea{
+	font-family: "cofo-raffine", sans-serif;
+}
+
+section {
+  padding: 64px 20px;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+*/
+
+
+
+
