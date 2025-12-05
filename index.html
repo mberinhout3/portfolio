@@ -4,6 +4,7 @@
  <head>
 
    <meta charset="utf-8"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
    <link href="css/portfolio.css" rel="stylesheet" type="text/css"/>
 	<link rel="stylesheet" href="https://use.typekit.net/dzq6gvq.css">
 	<title> MB Portfolio </title>
@@ -26,11 +27,11 @@
 				<img src="images/name-illustrator.png" alt="Maya Berinhout Illustrator">
 				</a>
 				<ul>
-					<li><a href="index.html">Home</a></li>
-					<li><a href="./about.html">About</a></li>
-					<li><a href="#portfolio">Portfolio</a></li>
+					<li><a class="active" href="index.html">Home</a></li>
+					<li><a href="about.html">About</a></li>
+					<li><a href="index.html#portfolio">Portfolio</a></li>
 					<li><a href="shop.html">Shop</a></li>
-					<li><a href="./contact.html">Contact</a></li>
+					<li><a href="contact.html">Contact</a></li>
 				</ul>
 			
 		</nav>
@@ -43,7 +44,7 @@
 
 			
 		<!--Portfolio-->
-		<section id ="slideshow" class="container">
+		<section id ="portfolio">
 
 		<div class="carousel">
 		  <div class="track">
@@ -56,7 +57,7 @@
 			<figure class="slide"><img src="artwork/frog.jpeg" alt="pen drawing of a frog"></figure>
 			<figure class="slide"><img src="artwork/grace.jpeg" alt="acrylic painting of dog named Grace"></figure>
 
-			<!-- Copy B (identical) -->
+			<!-- Copy B (identical for the loop to be seamless and no weird jump) -->
 			<figure class="slide"><img src="artwork/grandpa.jpeg" alt=""></figure>
 			<figure class="slide"><img src="artwork/gal.jpeg" alt=""></figure>
 			<figure class="slide"><img src="artwork/oil.jpeg" alt=""></figure>
@@ -105,39 +106,9 @@
 			  <input type="submit" value="SEND" />
 			</div>
 		  </form>
-		</section>
+	</section>
 
-<!-- 
-<section id="contact">
-	
-	<div class="contact-left">
-		  <h2 class="accent">Let’s Work Together</h2>
-		  	<form>
-			  <input type="text" name="name" placeholder="Name" />
-			  <input type="text" name="subject" placeholder="Subject" />
-			  <input type="email" name="email" placeholder="Email" />
-			  <input type="tel" name="phone" placeholder="Phone number" />
-			</form>
-	</div>
-		
-	<div class="contact-right">				
-				<p id="myinfo">(404) 625-3784</br>
-				mberinhout5@gmail.com</br>
-				Social Media...</p>
-			
-		   
-				<p id="cta">Contact me for commissions, collaborations, or illustration projects.</p>
-			<form>
-			  <textarea placeholder="Message"></textarea>
-			  <input type="submit" value="SEND" />
-			 </form>
-		</div>
-		  
-</section>
--->		  
-		   
-		 
-		 
+ 
 	</main>
 
 	<footer></footer>
@@ -150,57 +121,3 @@
 
 
 
-
-
-<!-- <section id="background" >
-			<div class="row">
-			  <div class="column">
-				<img src="artwork/grandpa.png" alt="color pencil drawing of my grandpa">
-				<img src="artwork/gal.png" alt="graphite drawing of Gal Gadot">
-			  </div>
-			 <div class="column">
-				<img src="artwork/oil.png" alt="oil painting of a still life">
-				<img src="artwork/still_life.png" alt="charcoal drawing of a still life">
-			  </div>
-			 <div class="column">
-				<img src="artwork/roses.png" alt= "acrylic painting of roses and butterflies">
-				<img src="artwork/frog.png" alt="pen drawing of a frog">
-			  </div>
-			 <div class="column">
-				<img src="artwork/grace.png" alt="acrylic painting of dog named Grace">
-			  </div>
-			</div>
-     </section>
-
--->
-
-
-
-
-<!--
-				<div class="input-group">
-					<input type="text" ="name" required> 
-					<label for="name">Name</label>
-				</div>
-				<div class="input-group">
-					<input type="text" id="subject"> 
-					<label for="subject">Subject</label>
-				</div>
-				<div class="input-group">
-					<input type="email" id="email" required> 
-					<label for="email"> Email </label>
-				</div>
-				<div class="input-group">
-					<input type="tel" id="number">
-					<label for="number">Phone number</label>
-				</div>
-		</div>
-		
-				<div class="input-group">
-					<textarea id="message" rows="8"></textarea>
-					<label for= "message" > Message </label>
-				</div>
-					<input type="submit" name="submit"/>
-		</div>
-		
-		-->
