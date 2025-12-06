@@ -18,6 +18,7 @@ html, body {
   background-size: cover;      /* scales to fill the screen */
   background-position: center;
   background-attachment: fixed; 
+  backdrop-filter: blur(2px); 
 }
 
 /* Base body text */
@@ -120,7 +121,7 @@ nav ul{
   font-weight: 500;
   color:#fff;
   text-align: center;
-  padding-top: 120px;
+  padding-top: 100px;
   padding-bottom: 30px;
   text-transform: uppercase; 
   text-decoration: none;
@@ -139,11 +140,11 @@ nav ul{
 /* CAROUSEL */
 
 .carousel{
-  margin:100px auto;
+  margin:20px auto 60px;
   width:90%;
   overflow:hidden;
   position:relative;
-  padding-top:100px;
+  padding-top:20px;
 }
 
 /* Moving track (two copies in one row) */
@@ -165,8 +166,9 @@ nav ul{
 /* KEY: keep aspect ratio – set a common height, width auto */
 .slide img{
   display:block;
-  height:400px;              
+  height:300px;              
   width:auto;  /* maintains aspect ratio */
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
 
 /* Smaller images on narrower screens */
@@ -196,8 +198,16 @@ nav ul{
   to   { transform: translateX(-50%); }
 }
 
-.carousel:hover .track{ animation-play-state:paused; }
+./*carousel:hover .track{ 
+	animation-play-state:paused; 
+	}*/
+	
 @media (prefers-reduced-motion: reduce){ .track{ animation:none; } }
+
+.slide:hover img{
+	transform: scale(1.08);
+	box-shadow: 0 8px 20px rgba(0,0,0,.4);
+}
 
 /* "More work" button */
 
@@ -205,18 +215,24 @@ nav ul{
   display:flex;
   justify-content:center;
   align-items: center;
+  margin: 40px auto 30px;
 }
 
 .btn{
   border: 1px solid black;
   border-radius: 0px;
   background-color: black;
-  padding: 10px 14px;
+  padding: 5px 14px;
+  
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  
   font-family: "cofo-raffine", sans-serif;
-  font-size: 40px;
-  font-weight: 400;
+  font-size: 30px;
+  font-weight: 500;
   cursor:pointer;
-  letter-spacing: 0.1em;
+  letter-spacing: 0.08em;
   text-transform: uppercase; 
   transform: scale(.8, 1);
   text-align: center;
@@ -234,16 +250,56 @@ nav ul{
 
 @media (max-width: 600px) {
   .btn {
-    font-size: 28px;
+    font-size: 20px;
+	padding: 6px 18px;
   }
 }
+
+
+.decorative-divider{
+	margin: 10px auto 0;
+	display:flex;
+	justify-content:center;
+}
+
+.decorative-divider img{
+	width:80%;
+	height:auto;
+	opacity:0.9;
+	filter:brightness(0)invert(1);
+	transform: scaleY(0.23);
+	transform-origin: center;
+}
+
+
+
 
 /* CONTACT SECTION (shared by home + contact page) */
 
 #contact {
-  padding-top: 120px;
-  padding-bottom: 80px;
+	position: relative;
+	margin-top:0;
+	padding-top: 20px;
+	padding-bottom: 60px;
 }
+
+
+#contact::before {
+  content: "";
+  position: absolute;
+  inset: 0;                          /* cover entire section */
+  background: rgba(0, 0, 0, 0.08);   /* dark tint to boost contrast */
+  backdrop-filter: blur(2px);        /* blur the painting behind */
+  z-index: 0;                        /* sit behind the content */
+}
+
+
+/* Make sure the actual content sits above the overlay */
+#contact > * {
+  position: relative;
+  z-index: 1;
+}
+
 
 /* grid layout for whole block */
 .contact-grid {
@@ -258,7 +314,7 @@ nav ul{
     "fields  message";
   column-gap:60px;
   row-gap:24px;
-  align-items: center;
+  align-items: start;
   justify-items: stretch;
 }
 
@@ -272,18 +328,24 @@ nav ul{
 .contact-title {
   grid-area: title;
   margin: 0;
-  font-size: 100px;
-  font-weight: 700;
-  letter-spacing: 0.03em;
+  font-weight: 500;
+  text-transform: uppercase; 
+  text-decoration: none;
+  font-size: clamp(48px, 7vw, 96px);
+  letter-spacing: .10em;
   color:#fff;
   text-align: left;
 }
 
+
+
 #cta {
   grid-area: cta;
   margin: 0;
-  font-size: 36px;
-  font-weight: 400;
+  font-family: "adriane", sans-serif;
+  font-style: normal;
+  font-size: 18px;
+  font-weight: 100;
   color:#fff;
   text-align: left;
   text-shadow: 0 2px 6px rgba(0,0,0,0.6);
@@ -292,14 +354,18 @@ nav ul{
 #myinfo {
   grid-area: info;
   margin: 0;
-  font-size: 32px;
-  font-weight: 400;
+  font-family: "adriane", sans-serif;
+  font-style: normal;
+  font-size: 18px;
+  font-weight: 0;
   color:#fff;
   line-height:1.4;
   text-align: left;
   text-shadow: 0 2px 6px rgba(0,0,0,0.6);
   align-self: center;
 }
+
+
 
 .contact-left {
   grid-area: fields;
@@ -318,11 +384,12 @@ nav ul{
 #contact input,
 #contact textarea {
   width: 100%;
-  padding: 10px 12px;
-  font-family: inherit;
+  padding: 10px 10px;
+  font-family: "adriane", sans-serif;
+  font-style: normal;
   color: #222;
   font-weight: 400;
-  font-size: 20px;
+  font-size: 16px;
   letter-spacing:0.04em;
   border: 1px solid rgba(0,0,0,0.25);
   border-radius: 6px;
@@ -337,21 +404,20 @@ nav ul{
 }
 
 #contact textarea {
-  min-height: 280px;
-  resize: vertical;
+  min-height: 235px;
 }
 
 /*  SEND button alignment */
 #contact input[type="submit"] {
   align-self: flex-end;/* right side of column */
   width: auto;
-  padding: 8px 26px;
+  padding: 8px 10px;
   background: #fff;
   color: #000;
   border: none;
-  font-size: 18px;
+  font-size: 16px;
   cursor: pointer;
-  font-weight: 500;
+  font-weight: 600;
   transition: all 0.3s ease;
 }
 
@@ -378,7 +444,7 @@ nav ul{
 
   #cta,
   #myinfo {
-    font-size: 24px;
+    font-size: 18px;
   }
 }
 
